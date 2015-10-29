@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require "fileutils"
+require "crumple"
+
+# testy = Xprt::Mover.new
+# testy.ayo
+if ARGV.length == 1
+  file = ARGV[0]
+  puts file
+  dest = "/Users/matthewohara/dump/#{file}"
+  FileUtils.mv(file, dest)
+else
+  puts "Crumple only accepts exactly one argument right now. Who do you think you are?"
+end
