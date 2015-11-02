@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Matt0Hara\n"]
   spec.email         = ["mohara2@worcester.edu"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{A gem that throws away unwanted files, but keeps them
+                          for future use.}
   spec.homepage      = "https://github.com/Matt0Hara/crumple"
   spec.license       = "MIT"
 
@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec"
 end
