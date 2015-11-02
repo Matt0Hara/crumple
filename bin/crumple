@@ -2,13 +2,36 @@
 require "fileutils"
 require "crumple"
 
-# testy = Xprt::Mover.new
-# testy.ayo
-if ARGV.length == 1
-  file = ARGV[0]
-  puts file
-  dest = "/Users/matthewohara/dump/#{file}"
-  FileUtils.mv(file, dest)
-else
-  puts "Crumple only accepts exactly one argument right now. Who do you think you are?"
+
+
+options = {}
+
+opt_parser = OptionParser.new do |opt|
+  opt.banner = "Hey guys!"
+  opt.separator  ""
+  opt.separator  "Commands"
+  opt.separator  "     Simply input a filename to export it!"
+  opt.separator  ""
+  opt.separator  "Options"
+
+  opt.on("") do |file|
+    dump = "/Users/matthewohara/dump/#{file}"
+    FileUtils.mv(dump_file, dump_dir)
+  end
+
+  opt.on("-h","--help","help") do
+    puts opt_parser
+  end
 end
+
+opt_parser.parse!
+
+
+# if ARGV.length == 1
+#   if ARGV[0]
+#     input = ARGV[0]
+#     dest = "/Users/matthewohara/dump/#{input}"
+#     FileUtils.mv(input, dest)
+# else
+#   puts "Crumple only accepts exactly one argument right now. Who do you think you are?"
+# end
