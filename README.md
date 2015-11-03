@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projects/5f790d70-63de-0133-91d7-4e7188597f7b/status?branch=master)![Code Climate](https://codeclimate.com/github/Matt0hara/crumple.png) [![Coverage Status](https://coveralls.io/repos/Matt0hara/crumple/badge.svg?branch=master&service=github)](https://coveralls.io/github/Matt0hara/crumple?branch=master)
+![Codeship Status for Matt0Hara/Crumple](https://codeship.com/projects/5f790d70-63de-0133-91d7-4e7188597f7b/status?branch=master)![Code Climate](https://codeclimate.com/github/Matt0hara/Crumple.png) [![Coverage Status](https://coveralls.io/repos/Matt0hara/Crumple/badge.svg?branch=master&service=github)](https://coveralls.io/github/Matt0hara/Crumple?branch=master)
 
 # Crumple
 
