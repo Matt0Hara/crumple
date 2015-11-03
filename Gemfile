@@ -4,5 +4,6 @@ source 'https://rubygems.org'
 gemspec
 gem "fileutils"
 group :test
+  gem "coveralls", require: false
   gem 'fakefs', require: "fakefs/safe"
 end
