@@ -1,5 +1,4 @@
-require 'coveralls'
-Coveralls.wear!
+require "coveralls"
 
 require "rspec"
 require "fakefs"
