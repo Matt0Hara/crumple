@@ -10,6 +10,5 @@ describe Crumple do
       expect(File.exists?("dummy.txt")).to eq true
       expect(Dir.exist?(dump_dir))
     end
-
   end
 end
