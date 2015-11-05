@@ -7,17 +7,17 @@ module Crumple
 
     def initialize(target_file)
       @target_file = target_file
-      @dump_dir = "/crumpledump/"
+      @dump_dir = get_dump_dir
     end
 
     def get_dump_dir
-      #set to .crumple_dir.txt if successful
-      # if File.exist?("crumple_dir.txt")
-      #   unless "crumple_dir.txt".gets.chomp.nil?
-      #     return  "crumple_dir.txt".gets.chomp
-      #   end
+      if File.exist?(".crumpleconfig.txt")
+        unless File.read(".crumpleconfig.txt").nil?
+          return  File.read(".crumpleconfig.txt")
+        end
+      else
         "/crumpledump/"
-      # end
+      end
     end
 
     def dump
