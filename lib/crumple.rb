@@ -13,7 +13,7 @@ module Crumple
     def get_dump_dir
       if File.exist?(".crumpleconfig.txt")
         unless File.read(".crumpleconfig.txt").nil?
-          return  File.read(".crumpleconfig.txt")
+          return File.read(".crumpleconfig.txt")
         end
       else
         "/crumpledump/"
@@ -22,15 +22,13 @@ module Crumple
 
     def dump
       if File.exist?(@target_file)
-        unless Dir.exists?(@dump_dir)
+        unless Dir.exist?(@dump_dir)
           FileUtils.mkdir(@dump_dir)
         end
-        origin_file = File.absolute_path(@target_file)
         FileUtils.mv(@target_file, @dump_dir)
       else
         raise "File does not exist!"
       end
     end
-
   end
 end
