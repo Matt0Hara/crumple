@@ -13,7 +13,8 @@ module Crumple
     def change_dump_dir(new_dump_dir)
       config_file = ".crumpleconfig.txt"
       FileUtils.touch(config_file) unless File.exist?(config_file)
-      File.open(config_file, "w") do
+      File.open(config_file, "w") do |file|
+        file.puts("#{new_dump_dir}")
       end
       @dump_dir = get_dump_dir
     end
