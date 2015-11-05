@@ -10,10 +10,20 @@ module Crumple
       @dump_dir = get_dump_dir
     end
 
+    def change_dump_dir(new_dump_dir)
+      config_file = ".crumpleconfig.txt"
+      FileUtils.touch(config_file) unless File.exist?(config_file)
+      File.open(config_file, "w") do
+        puts "#{new_dump_dir}"
+      end
+      @dump_dir = get_dump_dir
+    end
+
     def get_dump_dir
-      if File.exist?(".crumpleconfig.txt")
-        unless File.read(".crumpleconfig.txt").nil?
-          return File.read(".crumpleconfig.txt")
+      config_file = ".crumpleconfig.txt"
+      if File.exist?(config_file)
+        unless File.read(config_file).nil?
+          return File.read(config_file)
         end
       else
         "/crumpledump/"
