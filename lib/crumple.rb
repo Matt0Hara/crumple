@@ -14,7 +14,6 @@ module Crumple
       config_file = ".crumpleconfig.txt"
       FileUtils.touch(config_file) unless File.exist?(config_file)
       File.open(config_file, "w") do
-        puts "#{new_dump_dir}"
       end
       @dump_dir = get_dump_dir
     end
