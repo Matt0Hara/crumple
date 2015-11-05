@@ -40,7 +40,7 @@ module Crumple
 
     describe "#get_dump_dir" do
       it "sets the dump directory to default if no config file is present",
-       fakefs: true do
+      fakefs: true do
         expect(File.exist?("crumpleConfig.txt")).to be false
         FileUtils.touch("dummy.txt")
         @mover.dump
