@@ -2,8 +2,6 @@
 require "fileutils"
 require "crumple"
 
-
-
 options = {}
 
 opt_parser = OptionParser.new do |opt|
@@ -14,9 +12,14 @@ opt_parser = OptionParser.new do |opt|
   opt.separator  ""
   opt.separator  "Options"
 
-  opt.on("") do |file|
-    dump = "/Users/matthewohara/dump/#{file}"
-    FileUtils.mv(dump_file, dump_dir)
+
+  opt.on("FILE","--dump","move a file, dude") do
+    # dump(ARGV[0])
+    puts "hi"
+  end
+
+  opt.on("-s","--dir","set dump directory") do
+
   end
 
   opt.on("-h","--help","help") do
