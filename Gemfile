@@ -1,9 +1,10 @@
 source "https://rubygems.org"
-require "capybara/rspec"
 
 # Specify your gem's dependencies in crumple.gemspec
 gemspec
 gem "fileutils"
 group :test do
+  gem "capybara/rspec"
+  gem "coveralls", require: false
   gem 'fakefs', require: "fakefs/safe"
 end

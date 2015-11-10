@@ -36,5 +36,5 @@ opt_parser.parse!
 #     dest = "/Users/matthewohara/dump/#{input}"
 #     FileUtils.mv(input, dest)
 # else
-#   puts "Crumple only accepts exactly one argument right now. Who do you think you are?"
+#   puts "Crumple only accepts exactly one argument right now. Who do you think you is?"
 # end
