@@ -17,11 +17,6 @@ module Crumple
       it "has a default dump directory", fakefs: true do
         expect(@mover.dump_dir).to eql("/crumpledump/")
       end
-
-      # it "can add a dump directory" do
-      #   @mover.dump_dir = "/etc"
-      #   expect(@mover.dump_dir).to eql("/etc")
-      # end
     end
 
     describe "#dump" do
@@ -57,7 +52,6 @@ module Crumple
         end
         @mover = Mover.new("dummy.txt")
         @mover.dump
-        # Make a method
         file_moved = File.exist?("/dumplecrump/dummy.txt")
         old_file_gone = File.exist?("/dummy.txt")
         expect(file_moved).to be true
@@ -65,12 +59,12 @@ module Crumple
       end
     end
 
-    # describe "#change_dump_dir" do
+    # describe "#set_dump_dir" do
     #   it "creates a new config file if none exists", fakefs: true do
     #     expect(File.exist?("crumpleconfig.txt")).to be false
     #     default_path = @mover.dump_dir
     #     expect(default_path).to eql("/crumpledump/")
-    #     @mover.change_dump_dir("/dumplecrump/")
+    #     @mover.set_dump_dir("/dumplecrump/")
     #     new_path = "#{@mover.dump_dir}"
     #     # test should pass, but throws superclass mismatch
     #     expect(new_path).to eql("/dumplecrump")

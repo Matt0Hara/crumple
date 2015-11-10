@@ -12,14 +12,8 @@ opt_parser = OptionParser.new do |opt|
   opt.separator  ""
   opt.separator  "Options"
 
-
-  opt.on("FILE","--dump","move a file, dude") do
-    # dump(ARGV[0])
-    puts "hi"
-  end
-
   opt.on("-s","--dir","set dump directory") do
-
+    options[:set_dump_dir] = true
   end
 
   opt.on("-h","--help","help") do
@@ -29,12 +23,11 @@ end
 
 opt_parser.parse!
 
+mover = Crumple::Mover.new
 
-# if ARGV.length == 1
-#   if ARGV[0]
-#     input = ARGV[0]
-#     dest = "/Users/matthewohara/dump/#{input}"
-#     FileUtils.mv(input, dest)
-# else
-#   puts "Crumple only accepts exactly one argument right now. Who do you think you is?"
-# end
+if option[:set_dump_dir].nil?
+  mover.target_file = ARGV[0]
+  mover.dump
+else
+  mover.change_dump_dir
+end

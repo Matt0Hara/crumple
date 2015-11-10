@@ -3,14 +3,15 @@ require "fileutils"
 
 module Crumple
   class Mover
-    attr_reader :target_file, :dump_dir
+    attr_accessor :target_file
+    attr_reader :dump_dir
 
-    def initialize(target_file)
+    def initialize
       @target_file = target_file
       @dump_dir = get_dump_dir
     end
 
-    def change_dump_dir(new_dump_dir)
+    def set_dump_dir(new_dump_dir)
       config_file = ".crumpleconfig.txt"
       FileUtils.touch(config_file) unless File.exist?(config_file)
       File.open(config_file, "w") do |file|
