@@ -12,7 +12,7 @@ opt_parser = OptionParser.new do |opt|
   opt.separator  ""
   opt.separator  "Options"
 
-  opt.on("-s","--dir","set dump directory") do
+  opt.on("-d","--dir","set dump directory") do
     options[:set_dump_dir] = true
   end
 
@@ -25,9 +25,9 @@ opt_parser.parse!
 
 mover = Crumple::Mover.new
 
-if option[:set_dump_dir].nil?
-  mover.target_file = ARGV[0]
+if options[:set_dump_dir].nil?
+  mover.set_target_file = ARGV[0]
   mover.dump
 else
-  mover.change_dump_dir
+  mover.set_dump_dir(ARGV[0])
 end
