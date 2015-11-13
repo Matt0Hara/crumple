@@ -11,7 +11,7 @@ feature "user uses the command line interface", %{
     origin_path = File.absolute_path("dummy.txt")
     system("crumple dummy.txt")
     new_path = File.absolute_path("dummy.txt")
-    # expect(new_path).to_not eq(origin_path)
-    # expect(new_path).to eq("/crumpledump/dummy.txt")
+    expect(new_path).to_not eq(origin_path)
+    expect(new_path).to eq("/crumpledump/dummy.txt")
   end
 end
