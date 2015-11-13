@@ -16,6 +16,10 @@ opt_parser = OptionParser.new do |opt|
     options[:set_dump_dir] = true
   end
 
+  opt.on("-g","--getdir","get dump_dir") do
+    options[:get_dump_dir] = true
+  end
+
   opt.on("-h","--help","help") do
     puts opt_parser
   end
@@ -25,9 +29,11 @@ opt_parser.parse!
 
 mover = Crumple::Mover.new
 
-if options[:set_dump_dir].nil?
-  mover.set_target_file = ARGV[0]
-  mover.dump
-else
+if options[:set_dump_dir]
   mover.set_dump_dir(ARGV[0])
+elsif options[:get_dump_dir]
+  puts mover.get_dump_dir
+elsif
+  mover.set_target_file(ARGV[0])
+  mover.dump
 end
