@@ -45,8 +45,7 @@ module Crumple
         @mover.set_target_file("dummy.txt")
         @mover.dump
         Dir.exist?("crumpledump")
-        new_path = File.absolute_path("~/Documents/crumpledump/dummy.txt")
-        Dir.open("~/Documents/crumpledump/")
+        new_path = File.absolute_path("dummy.txt")
         expect(new_path).to eq("~/Documents/crumpledump/dummy.txt")
       end
 
