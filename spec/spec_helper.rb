@@ -1,6 +1,6 @@
 require "coveralls"
 require "crumple"
-require "rspec"
+require "capybara/rspec"
 require "fakefs/spec_helpers"
 
 RSpec.configure do |config|
