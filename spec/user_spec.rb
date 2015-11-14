@@ -5,7 +5,6 @@ feature "user uses the command line interface", %{
   I want to archive a file
   So I can keep my workplace clean
 } do
-
   scenario "user archives a file to the default directory" do
     FileUtils.touch("dummy.txt")
     origin_path = File.absolute_path("dummy.txt")
