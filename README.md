@@ -1,3 +1,5 @@
+![Codeship Status for Matt0Hara/Crumple](https://codeship.com/projects/5f790d70-63de-0133-91d7-4e7188597f7b/status?branch=master)![Code Climate](https://codeclimate.com/github/Matt0hara/Crumple.png) [![Coverage Status](https://coveralls.io/repos/Matt0hara/Crumple/badge.svg?branch=master&service=github)](https://coveralls.io/github/Matt0hara/Crumple?branch=master)
+
 # Crumple
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/crumple`. To experiment with that code, run `bin/console` for an interactive prompt.
@@ -29,6 +31,7 @@ Or install it yourself as:
 
 * To view the current dump directory:
     crumple -g
+
 
 ## Development
 Tests are failing right now due to a conflict with fakefs, a gem used for testing! Gem works fine otherwise.
