@@ -3,26 +3,29 @@ require "crumple"
 
 module Crumple
   describe Mover do
-    before(:all) do
+    def setup_fs
       FileUtils.mkdir_p("~/Documents/")
+    end
+    
+    before(:each) do
       @mover = Mover.new
     end
 
-    describe "#set_target_file" do
-      it "sets the target file" do
+    describe "#set_target_file", fakefs: true do
+      it "sets the target file", fakefs: true do
         @mover.set_target_file("dummy.txt")
         expect(@mover.target_file).to eq("dummy.txt")
       end
     end
 
-    describe "#get_target_file" do
-      it "gets the target file" do
+    describe "#get_target_file",fakefs: true do
+      it "gets the target file", fakefs: true do
         @mover.target_file = "dummy.txt"
         expect(@mover.get_target_file).to eql("dummy.txt")
       end
     end
 
-    describe "#dump" do
+    describe "#dump", fakefs: true do
       it "raises an error if the target file does not exist", fakefs: true do
         @mover.set_target_file("dummy.txt")
         expect { @mover.dump }.to raise_error("File does not exist!")
@@ -38,7 +41,7 @@ module Crumple
       end
     end
 
-    describe "#get_dump_dir" do
+    describe "#get_dump_dir", fakefs: true do
       it "defaults dump directory if no config file is present", fakefs: true do
         expect(File.exist?("crumpleConfig.txt")).to be false
         FileUtils.touch("dummy.txt")
@@ -64,7 +67,7 @@ module Crumple
       end
     end
 
-    describe "#set_dump_dir" do
+    describe "#set_dump_dir", fakefs: true do
       it "creates a new config file if none exists", fakefs: true do
         expect(File.exist?("crumpleconfig.txt")).to be false
         default_path = @mover.get_dump_dir
