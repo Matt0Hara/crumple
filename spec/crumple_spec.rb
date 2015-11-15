@@ -6,32 +6,36 @@ module Crumple
     def setup_fs
       FileUtils.mkdir_p("~/Documents/")
     end
-    
+
     before(:each) do
       @mover = Mover.new
     end
 
-    describe "#set_target_file", fakefs: true do
+    describe "#set_target_file" do
       it "sets the target file", fakefs: true do
+        setup_fs
         @mover.set_target_file("dummy.txt")
         expect(@mover.target_file).to eq("dummy.txt")
       end
     end
 
-    describe "#get_target_file",fakefs: true do
+    describe "#get_target_file" do
       it "gets the target file", fakefs: true do
+        setup_fs
         @mover.target_file = "dummy.txt"
         expect(@mover.get_target_file).to eql("dummy.txt")
       end
     end
 
-    describe "#dump", fakefs: true do
+    describe "#dump" do
       it "raises an error if the target file does not exist", fakefs: true do
+        setup_fs
         @mover.set_target_file("dummy.txt")
         expect { @mover.dump }.to raise_error("File does not exist!")
       end
 
       it "moves a file to the dump directory", fakefs: true do
+        setup_fs
         FileUtils.touch("dummy.txt")
         origin_path = File.absolute_path("dummy.txt")
         @mover.set_target_file("dummy.txt")
@@ -41,8 +45,9 @@ module Crumple
       end
     end
 
-    describe "#get_dump_dir", fakefs: true do
+    describe "#get_dump_dir" do
       it "defaults dump directory if no config file is present", fakefs: true do
+        setup_fs
         expect(File.exist?("crumpleConfig.txt")).to be false
         FileUtils.touch("dummy.txt")
         @mover.set_target_file("dummy.txt")
@@ -53,6 +58,7 @@ module Crumple
       end
 
       it "reads a custom dump directory from the config file", fakefs: true do
+        setup_fs
         FileUtils.touch(".crumpleconfig.txt")
         FileUtils.touch("dummy.txt")
         File.open(".crumpleconfig.txt", "a") do |file|
@@ -67,8 +73,9 @@ module Crumple
       end
     end
 
-    describe "#set_dump_dir", fakefs: true do
+    describe "#set_dump_dir" do
       it "creates a new config file if none exists", fakefs: true do
+        setup_fs
         expect(File.exist?("crumpleconfig.txt")).to be false
         default_path = @mover.get_dump_dir
         expect(default_path).to eql("~/Documents/crumpledump/")
