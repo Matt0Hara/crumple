@@ -1,7 +1,8 @@
 require "crumple/version"
-require "fileutils"
+
 
 module Crumple
+  require "fileutils"
   class Mover
     attr_accessor :target_file
     attr_reader :dump_dir
