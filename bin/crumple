@@ -5,8 +5,6 @@ require "crumple"
 options = {}
 
 opt_parser = OptionParser.new do |opt|
-  opt.banner = "Hey guys!"
-  opt.separator  ""
   opt.separator  "Commands"
   opt.separator  "     Simply input a filename to export it!"
   opt.separator  ""
